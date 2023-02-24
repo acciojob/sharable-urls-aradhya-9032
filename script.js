@@ -1,7 +1,9 @@
 // your code here
-var nameElement = document.quertSelector(#name);
-var yearElement = document.quertSelector(#year);
-var btn = document.quertSelector(#button);
+var form = document.querySelector("form");
+var h3 = document.querySelector("h3");
+var nameElement = document.querySelector(#name);
+var yearElement = document.querySelector(#year);
+var btn = document.querySelector(#button);
 
 function handleSubmit(event){
 	event.preventDefault();
