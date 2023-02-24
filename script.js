@@ -8,15 +8,19 @@ function handleSubmit(event){
 	var h3Value = 'https://localhost:8080/';
 	var name = nameElement.value;
 	var year = yearElement.value;
+	
 	if(name && year){
 		h3Value += '?name=' + name + '&year+' + year;
 	}
-	else if (!name && year){
-		h3Value += '?year='+ year;
-	}
-	else if (name && !year){
+		
+	else if(name && !year){
 		h3Value += '?name='+ name;
 	}
+			
+	else if(!name && year){
+		h3Value += '?year='+ year;
+	}
+	
 	h3textContent = h3Value;
 }
 form.addEventListener('submit',handleSubmit)
