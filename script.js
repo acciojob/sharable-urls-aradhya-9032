@@ -1,18 +1,24 @@
 // your code here
-var todoValue = document.getElementById("newTodoInput");
-var btn = document.getElementById("addTodoBtn");
-var ol = document.getElementById("todoList");
+var form = document.querySelector("form");
+var h3 = document.querySelector("h3");
+var nameELement = document.querySelector("#name");
+var yearElement = document.querySelector("#year");
+var btn = document.querySelector("#button");
 
-function addTodo() {
-  //alert(todoValue.value);
-  if (todoValue.value) {
-    // we need to create a li
-    var li = document.createElement("li");
-    li.textContent = todoValue.value;
-    ol.appendChild(li);
-    todoValue.value = "";
+function handleSubmit(event) {
+  event.preventDefault();
+  var h3Value = "https://localhost:8080/";
+  var name = nameELement.value;
+  var year = yearElement.value;
+
+  if (name && year) {
+    h3Value += "?name=" + name + "&year=" + year;
+  } else if (name && !year) {
+    h3Value += "?name=" + name;
+  } else if (!name && year) {
+    h3Value += "?year=" + year;
   }
+  h3.textContent = h3Value;
 }
 
-btn.addEventListener("click", addTodo);
-form.addEventListener('submit',handleSubmit)
+form.addEventListener("submit", handleSubmit);
